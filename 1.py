@@ -1,4 +1,4 @@
-alph = '0123456789ABCDEFGHIJKLMNOQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$&'
+alph = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$&'
 
 def to_10(n, k):
     ans = 0
@@ -11,6 +11,7 @@ def from_10(n, k):
     cur = int(n)
     while cur >= k:
         ans += alph[cur % k]
+        cur -= (cur % k)
         cur //= k
     ans += alph[cur]
     return ans[::-1]
